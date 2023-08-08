@@ -1,0 +1,16 @@
+
+.github-img{
+/* background-color: red; */
+display: flex;
+justify-content: center;
+padding: 10px;
+border-radius: 10px;
+
+
+}
+
+.github-name{
+margin-top:53px;
+
+margin-left: 22px;
+}

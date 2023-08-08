@@ -1,0 +1,43 @@
+.card{
+    /* background-color: greenyellow; */
+    width: 200px;
+  
+    border: 1px solid red;
+margin-left: 25px;
+    height: 250px;
+    border-radius: 20px;
+    margin-top: 22px;
+}
+.card-img-area{
+    display: flex;
+    flex-direction: column;
+}
+.img-circle{
+    width: 100px;
+    height: 100px;
+border-radius: 50%;
+margin-left: 42px;
+margin-top: 22px;
+}
+.img-circle img{
+    width: 100px;
+height: 100px;
+border: 2px solid blue;
+object-fit: cover;
+border-radius: 50%;
+
+
+}
+.card-img-area h1{
+    margin-left: 22px;
+    color: black;
+}
+.card-img-area  button{
+margin-left: 22px;
+}
+.view-btn{
+    padding: 5px 10px;
+    font-size: 25px;
+    border-radius: 20px;
+    border:none;
+}
