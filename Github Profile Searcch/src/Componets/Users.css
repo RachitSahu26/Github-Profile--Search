@@ -1,7 +1,34 @@
+.search-profile{
+/* background-color: red; */
+height: 40px;
+padding: 10px 2px;
+justify-content: center;
+display: flex;
+}
+.search-profile input{
+    width: 500px;
+    font-size: 20px;
+    padding-left: 10px;
+border-radius: 5px;
+border: none;
+background-color: antiquewhite;
+
+
+}
+.search-profile button{
+padding: 5px 10px;
+font-size: 20px;
+background-color: aqua;
+border-radius: 10px;
+margin-left: 10px;
+/* border: none; */
+}
+
+
 .card-area{
     /* background-color: red; */
     display: flex;
     flex-wrap: wrap;
-    margin: 5px 40px;
+    margin-left: 25px;
     padding: 10px;
 }
