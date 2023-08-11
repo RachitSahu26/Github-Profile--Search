@@ -1,0 +1,70 @@
+body{
+  background-color: rgb(124, 124, 124);
+}
+.profile{
+    /* background-color: red; */
+    width: 733px;
+    display: flex;
+    margin: 0 auto;
+    height: 400px;
+    /* padding: 5px 40px; */
+    /* background-color: greenyellow; */
+justify-content: space-between;
+}
+
+
+
+.user-img{
+    width: 300px;
+margin-top: 33px;
+    height: 300px;
+    margin-left: 60px;
+    border-radius: 50%;
+    border: 5px solid aqua;
+
+/* background-color: red; */
+}
+.user-profile-box{
+/* width: 500px; */
+/* margin-left: -50px; */
+margin-top: 20px;
+
+}
+.user-profile-box h1 {
+    font-size: 25px;
+}
+.user-profile-box h1 span{
+color: aqua;
+}
+.button2{
+    display: inline-block;
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 4px;
+  background-color: aqua; /* Set to aqua color */
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.button2:hover {
+    background-color: lightcyan; 
+    color: black;
+  }
+
+.button {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 4px;
+    background-color: #007bff; /* Blue color */
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+  }
+  
+  .button:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+  }

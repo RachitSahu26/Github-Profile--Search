@@ -1,3 +1,7 @@
+body{
+    background-color: rgb(124, 124, 124);
+  }
+
 .search-profile{
 /* background-color: red; */
 height: 40px;
@@ -29,6 +33,7 @@ margin-left: 10px;
     /* background-color: red; */
     display: flex;
     flex-wrap: wrap;
+
     margin-left: 25px;
     padding: 10px;
 }

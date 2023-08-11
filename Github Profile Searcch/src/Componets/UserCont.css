@@ -29,15 +29,20 @@ border-radius: 50%;
 
 }
 .card-img-area h1{
-    margin-left: 22px;
-    color: black;
+    /* margin-left: 32px; */
+    color: white;
+
+    text-align: center;
 }
 .card-img-area  button{
-margin-left: 22px;
+margin-left: 62px;
+
+
 }
 .view-btn{
     padding: 5px 10px;
     font-size: 25px;
-    border-radius: 20px;
+    border-radius: 10px;
     border:none;
+background-color: aqua;
 }

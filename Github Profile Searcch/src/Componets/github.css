@@ -4,9 +4,15 @@
 display: flex;
 justify-content: center;
 padding: 10px;
+/* background-color: white; */
+
 border-radius: 10px;
 
 
+}
+.git-img{
+ border:5px solid aqua ;
+ border-radius: 50%;
 }
 
 .github-name{
