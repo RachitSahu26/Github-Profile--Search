@@ -94,6 +94,8 @@ margin-top: 50px;
   background-color: transparent;
   border: none;
   cursor: pointer;
+  border-radius: 4px;
+
   padding: 5px 10px;
   margin: 5px;
   font-size: 30px;
@@ -114,5 +116,17 @@ margin-top: 50px;
   /* background-color: red; */
   display: flex;
   flex-wrap: wrap;
-  
+
+}
+
+/* ........repos......... */
+
+.repos{
+  background-color: rgb(28, 27, 27);
+
+padding: 10px 10px;
+
+
+  line-height: 60px;
+  border-radius: 20px;
 }

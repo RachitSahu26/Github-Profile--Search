@@ -1,0 +1,35 @@
+.repo-box{
+    border: 2px solid white;
+    border-radius: 15px;
+  margin-top: 15px;
+  height: 90px;
+}
+
+.repo-box:hover{
+  background-color: rgb(73, 72, 72);
+    cursor: pointer;
+}
+.repo-box a{
+    color: white;
+padding-left: 30px;
+font-size: 30px;
+
+}
+.repo-box a:hover{
+    color: blue;
+
+}
+.user-foks{
+    display: flex;
+    /* background-color: yellow; */
+margin-top: -44px;
+padding-left: 33px;
+
+}
+.user-foks h1{
+    color:white;
+    font-size: 20px;
+}
+.star,.fork{
+    margin-left: 33px;
+}
