@@ -11,12 +11,12 @@ border-radius: 10px;
 
 }
 .git-img{
- border:5px solid aqua ;
+ /* border:5px solid aqua ; */
  border-radius: 50%;
 }
 
 .github-name{
-margin-top:53px;
+margin-top:34px;
 
 margin-left: 22px;
 }

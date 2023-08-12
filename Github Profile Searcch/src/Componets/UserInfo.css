@@ -42,7 +42,7 @@ color: aqua;
   font-size: 16px;
   border: none;
   border-radius: 4px;
-  background-color: aqua; /* Set to aqua color */
+  background-color: #00ffff; /* Set to aqua color */
   color: white;
   cursor: pointer;
   transition: background-color 0.3s, color 0.3s;
@@ -68,3 +68,51 @@ color: aqua;
   .button:hover {
     background-color: #0056b3; /* Darker blue on hover */
   }
+
+
+
+/* user details like repo ,followers, */
+
+/* .user detail for buttton */
+
+.user-details{
+  display: flex;
+ 
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+ /* background-color: red; */
+padding-left: 400px;
+margin-top: 50px;
+}
+#activity-btn,#followers-btn{
+  margin-left: 50px;
+  /* background-color: red; */
+}
+
+.button3 {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 5px 10px;
+  margin: 5px;
+  font-size: 30px;
+  margin-left: 10px;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.button3.active {
+  background-color: #00ffff; /* Change this to the desired color */
+}
+
+
+
+
+
+/* .........followers........ */
+.followers{
+  /* background-color: red; */
+  display: flex;
+  flex-wrap: wrap;
+  
+}

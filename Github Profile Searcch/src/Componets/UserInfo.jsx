@@ -1,12 +1,20 @@
 import React, { useEffect, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import './UserInfo.css';
+import Tabs from './Tabs/Tabs';
+import Repo from './Repo/Repo';
+import Activity from './Activity/Activity';
+// import Followers from './Followers/Followers';
+import UserContainer from './UserContainer';
 
 function UserInfo() {
   const [user, setUser] = useState(null); // Initialize user state as null
   const { pathname } = useLocation();
-  const navigate = useNavigate();
+  const [type, setType] = useState("");
+  const [info, setInfo] = useState([]);
 
+  const navigate = useNavigate();
+  // ..............user information data fetch...............
   const fetchData = async () => {
     try {
       let baseUrl = "https://api.github.com/users";
@@ -17,16 +25,32 @@ function UserInfo() {
       console.error(error);
     }
   };
+// .........user repo, followers, Activity data fetch...........
+const getUrl = async () => {
+  try {
+    let baseUrl = "https://api.github.com/users";
+    let res = await fetch(baseUrl + pathname +`/${type}`);
+    let data = await res.json();
+    
+    setInfo(data);
+  } catch (error) {
+    console.error(  "not found a getUrl  error");
+  }
+};
 
-  useEffect(() => {
+
+useEffect(() => {
     fetchData();
-  }, [pathname]);
+    getUrl();
+
+    console.log(type)
+  }, [pathname, type]);
 
   return (
     <>
-     <button className="button" onClick={() => navigate("/")}>
-              Back
-            </button>
+      <button className="button" onClick={() => navigate("/")}>
+        Back
+      </button>
       {user ? (
         <div className="profile">
           <div className="img-box">
@@ -39,17 +63,51 @@ function UserInfo() {
             <h1><span>Following:  </span>{user.following}</h1>
             <h1><span>Public_Repositories:  </span>{user.public_repos}</h1>
             <h1><span>Join: </span>{user.created_at}</h1>
-           <a href={user.html_url}>
+            <a href={user.html_url} target='_blank'>
 
-            <button className="button2">
-              Visit
-            </button>
-           </a>
+              <button className="button2">
+                Visit
+              </button>
+            </a>
           </div>
         </div>
       ) : (
         <h1>There is nothing</h1>
       )}
+
+      <div className='user-details' >
+
+        <Tabs type={type} setType={setType} />
+      </div>
+      {
+        type === "repos"
+        &&
+        (<div><Repo /> </div>)
+
+      }
+
+
+      {
+        type === "received_events"
+        && (
+
+          <div><Activity /></div>
+        )
+      }
+
+
+      {
+        type === "followers"
+        && (
+
+          <div className='followers'>
+            <UserContainer />
+          </div>
+        )
+      }
+
+
+
     </>
   );
 }
