@@ -5,7 +5,7 @@ import Tabs from './Tabs/Tabs';
 import Repo from './Repo/Repo';
 import Activity from './Activity/Activity';
 // import Followers from './Followers/Followers';
-import UserContainer from './UserContainer';
+// import UserContainer from './UserContainer';
 
 function UserInfo() {
   const [user, setUser] = useState(null); // Initialize user state as null
@@ -25,21 +25,21 @@ function UserInfo() {
       console.error(error);
     }
   };
-// .........user repo, followers, Activity data fetch...........
-const getUrl = async () => {
-  try {
-    let baseUrl = "https://api.github.com/users";
-    let res = await fetch(baseUrl + pathname +`/${type}`);
-    let data = await res.json();
-    
-    setInfo(data);
-  } catch (error) {
-    console.error(  "not found a getUrl  error");
-  }
-};
+  // .........user repo, followers, Activity data fetch...........
+  const getUrl = async () => {
+    try {
+      let baseUrl = "https://api.github.com/users";
+      let res = await fetch(baseUrl + pathname + `/${type}`);
+      let data = await res.json();
+      console.log(data)
+      setInfo(data);
+    } catch (error) {
+      console.error("not found a getUrl  error");
+    }
+  };
 
 
-useEffect(() => {
+  useEffect(() => {
     fetchData();
     getUrl();
 
@@ -79,29 +79,49 @@ useEffect(() => {
 
         <Tabs type={type} setType={setType} />
       </div>
-      {
-        type === "repos"
-        &&
-        (<div><Repo /> </div>)
 
-      }
 
+
+
+
+
+
+      <div className='repos'>
+        {type === 'repos' && (
+          <div>
+            {info.length > 0 && <Repo users={info} />}
+          </div>
+        )}
+      </div>
+
+
+<div className='activity'>
 
       {
         type === "received_events"
         && (
+          
 
-          <div><Activity /></div>
-        )
-      }
+            <div>
+          
+          {
+          info &&  <Activity Activity={info} />
 
+          } 
+            </div>
+
+          
+          )
+        }
+
+        </div>
 
       {
         type === "followers"
         && (
 
           <div className='followers'>
-            <UserContainer />
+            {/* <UserContainer /> */}
           </div>
         )
       }
