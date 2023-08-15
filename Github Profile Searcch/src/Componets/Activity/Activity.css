@@ -1,7 +1,32 @@
 .acti-data{
-    background-color: red;
+border:  2px solid red;
+    border-radius: 20px;
+padding: 15px 10px;
+margin-top: 22px;
+margin-left: 10px;
+border-radius: 20px;
+color: white;
+display: flex;
+flex-direction: row;
 }
+.active-user-img{
+    height: 100px;
+    width: 100px;
+    background-color:blue;
+    border-radius: 50%;
 
+}
 .acti-data img{
+height: 100px;
+    width: 100px;
+    border-radius: 50%;
+
+object-fit:cover ;
 
 }
+.acti-data h1{
+    /* background-color: red; */
+    margin-left: 22px;
+    margin-top: 22px;
+    font-size: 20px;
+} 

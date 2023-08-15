@@ -119,14 +119,32 @@ margin-top: 50px;
 
 }
 
+
+
+/* .................all repo section........ */
+
+.all-section{
+  background-color: rgb(28, 27, 27);
+  border-radius: 20px;
+  
+}
+
 /* ........repos......... */
 
 .repos{
-  background-color: rgb(28, 27, 27);
 
 padding: 10px 10px;
 
 
   line-height: 60px;
-  border-radius: 20px;
+}
+.activity{
+  /* background-color: greenyellow; */
+  display: flex;
+  flex-direction: row;
+
+  flex-wrap: wrap;
+  margin: 10px 10px;
+  padding: 5px 153px;
+
 }

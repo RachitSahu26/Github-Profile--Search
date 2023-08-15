@@ -84,7 +84,9 @@ function UserInfo() {
 
 
 
+      <div className="all-section">
 
+    
 
       <div className='repos'>
         {type === 'repos' && (
@@ -95,26 +97,32 @@ function UserInfo() {
       </div>
 
 
-<div className='activity'>
 
-      {
-        type === "received_events"
-        && (
-          
 
-            <div>
-          
-          {
-          info &&  <Activity Activity={info} />
 
-          } 
-            </div>
+      <div className='activity'>
 
-          
+        {
+          type === "received_events"
+          && (
+
+
+            <>
+
+              {
+
+
+                info.length > 0 && <Activity Activity={info} />
+
+              }
+            </>
+
+
+
           )
         }
 
-        </div>
+      </div>
 
       {
         type === "followers"
@@ -127,7 +135,7 @@ function UserInfo() {
       }
 
 
-
+</div>
     </>
   );
 }
