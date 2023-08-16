@@ -4,46 +4,52 @@ import './UserInfo.css';
 import Tabs from './Tabs/Tabs';
 import Repo from './Repo/Repo';
 import Activity from './Activity/Activity';
-// import Followers from './Followers/Followers';
-// import UserContainer from './UserContainer';
+
+import UserContainer from './UserContainer';
 
 function UserInfo() {
-  const [user, setUser] = useState(null); // Initialize user state as null
+  const [user, setUser] = useState(null);
   const { pathname } = useLocation();
   const [type, setType] = useState("");
   const [info, setInfo] = useState([]);
+  const [retryAfter, setRetryAfter] = useState(10); // Initial retry delay
 
   const navigate = useNavigate();
-  // ..............user information data fetch...............
+
   const fetchData = async () => {
     try {
       let baseUrl = "https://api.github.com/users";
-      let res = await fetch(baseUrl + pathname);
-      let data = await res.json(); // Use await here
-      setUser(data); // Set the fetched user data
+      let res = await fetch (baseUrl + pathname);
+      let data = await res.json();
+      setUser(data);
     } catch (error) {
       console.error(error);
     }
   };
-  // .........user repo, followers, Activity data fetch...........
+
+  
   const getUrl = async () => {
     try {
       let baseUrl = "https://api.github.com/users";
-      let res = await fetch(baseUrl + pathname + `/${type}`);
-      let data = await res.json();
-      console.log(data)
-      setInfo(data);
+      let res = await fetch (baseUrl + pathname + `/${type}`);
+      if (res.status === 429) {
+        const retryAfterHeader = res.headers.get('Retry-After');
+        const retryAfterInSeconds = parseInt(retryAfterHeader) || 10;
+        setRetryAfter(retryAfterInSeconds);
+        setTimeout(() => {
+          getUrl(); // Retry the request after the specified delay
+        }, retryAfterInSeconds * 1000);
+      } else {
+        let data = await res.json();
+        setInfo(data);
+      }
     } catch (error) {
-      console.error("not found a getUrl  error");
+      console.error(error);
     }
   };
-
-
   useEffect(() => {
     fetchData();
     getUrl();
-
-    console.log(type)
   }, [pathname, type]);
 
   return (
@@ -83,59 +89,61 @@ function UserInfo() {
 
 
 
-
+      {/* all section is here */}
       <div className="all-section">
 
-    
+        {/* repos section is here */}
 
-      <div className='repos'>
-        {type === 'repos' && (
-          <div>
-            {info.length > 0 && <Repo users={info} />}
-          </div>
-        )}
+        <div className='repos'>
+          {type === 'repos' && (
+            <div>
+              {info.length > 0 && <Repo />}
+            </div>
+          )}
+        </div>
+
+
+        {/* activity section is here */}
+
+
+        <div className='activity'>
+          {
+            type === "received_events"
+            && (
+              <>
+                {
+                  info.length > 0 && <Activity Activity={info} />
+
+                }
+              </>
+            )
+          }
+
+        </div>
+
+
+        {/* followers section is here */}
+
+
+        <div className="followers">
+
+          {
+            type === "followers"
+            && (
+
+              < >
+                {
+
+                  info.length > 0 && <UserContainer users={info} />
+
+                }
+              </>
+            )
+          }
+        </div>
+
+
       </div>
-
-
-
-
-
-      <div className='activity'>
-
-        {
-          type === "received_events"
-          && (
-
-
-            <>
-
-              {
-
-
-                info.length > 0 && <Activity Activity={info} />
-
-              }
-            </>
-
-
-
-          )
-        }
-
-      </div>
-
-      {
-        type === "followers"
-        && (
-
-          <div className='followers'>
-            {/* <UserContainer /> */}
-          </div>
-        )
-      }
-
-
-</div>
     </>
   );
 }
